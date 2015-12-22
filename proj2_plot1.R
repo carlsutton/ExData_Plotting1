@@ -1,4 +1,7 @@
 #  Course project 2
+#  Have total emissions from PM2.5 decreased in the United States from 1999 to 2008?
+#  Using the base plotting system, make a plot showing the total PM2.5 emission from 
+#  all sources for each of the years 1999, 2002, 2005, and 2008.
 #  read in data
 nei <- readRDS("summarySCC_PM25.rds")
 scc <- readRDS("Source_Classification_Code.rds")
@@ -25,13 +28,10 @@ emiss.2008 <- sum(nei.emmis.2008$Emissions, na.rm = TRUE)
 emiss <- c(emiss.1999,emiss.2002,emiss.2005,emiss.2008)
 emiss
 years <- c(1999,2002,2005,2008)
-plot1 <- plot(years, emiss)
-title(main = "Base Plot of Emissions vs Years")
-ylab = "Emissions"
+plot1 <- plot(years, emiss, main = "Base Plot of Emissions vs. Years", 
+              ylab = "Emissions")
 dev.copy(png, file = "plot1.png")
 dev.off()
-dev.cur()  #  making sure it got back to screen
-
 plot(years, emiss)
 title(main = "Base Plot of Emissions vs Years")
 ylab = "Emissions"
